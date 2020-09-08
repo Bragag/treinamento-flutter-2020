@@ -1,5 +1,6 @@
 import 'package:exercicio_10/models/brand.model.dart';
 import 'package:exercicio_10/network/api.dart';
+import 'package:exercicio_10/widgets/list-item.widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -64,19 +65,10 @@ class _BrandListPageState extends State<BrandListPage> {
                   int index,
                 ) {
                   Brand brand = _brands[index];
-                  return CupertinoButton(
-                    onPressed: () => _onPress(context, widget.args.type, brand.name, brand.id),
-                    child: Container(
-                      width: double.infinity,
-                      height: 40,
-                      color: Colors.white,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                      child: Text(
-                        brand.name,
-                        style: TextStyle(color: Colors.blueGrey),
-                      ),
-                    ),
+                  return ListItem(
+                    onPress: () => _onPress(
+                        context, widget.args.type, brand.name, brand.id),
+                    buttonLabel: brand.name,
                   );
                 }),
       ),

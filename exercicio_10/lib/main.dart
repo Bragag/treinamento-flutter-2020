@@ -1,5 +1,6 @@
 import 'package:exercicio_10/models/car-detail.model.dart';
 import 'package:exercicio_10/pages/car-detail.page.dart';
+import 'package:exercicio_10/pages/favorites.page.dart';
 import 'package:exercicio_10/pages/home.page.dart';
 import 'package:exercicio_10/pages/brand-list.page.dart';
 import 'package:exercicio_10/pages/model-list.page.dart';
@@ -31,6 +32,8 @@ class MyApp extends StatelessWidget {
             YearListPage(ModalRoute.of(context).settings.arguments),
         CarDetailPage.routeName: (context) =>
             CarDetailPage(ModalRoute.of(context).settings.arguments),
+        FavoritesPage.routeName:  (context) =>
+            FavoritesPage(),
       },
     );
   }

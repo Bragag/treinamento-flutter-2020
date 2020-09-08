@@ -1,4 +1,5 @@
 import 'package:exercicio_10/pages/brand-list.page.dart';
+import 'package:exercicio_10/pages/favorites.page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,6 +19,10 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  _onPressNavBarButton() {
+    Navigator.pushNamed(context, FavoritesPage.routeName);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +31,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             icon: Icon(Icons.favorite),
-            onPressed: () {},
+            onPressed: () => _onPressNavBarButton(),
           ),
         ],
       ),

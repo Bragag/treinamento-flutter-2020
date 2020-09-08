@@ -1,6 +1,7 @@
 import 'package:exercicio_10/models/car.model.dart';
 import 'package:exercicio_10/network/api.dart';
 import 'package:exercicio_10/pages/year-list.page.dart';
+import 'package:exercicio_10/widgets/list-item.widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +25,8 @@ class ModelListPage extends StatefulWidget {
 class _ModelListPageState extends State<ModelListPage> {
   List<CarModel> _models = [];
 
-  _onPress(BuildContext context, String type, String modelName, String modelId, int brandId) {
+  _onPress(BuildContext context, String type, String modelName, String modelId,
+      int brandId) {
     Navigator.pushNamed(
       context,
       YearListPage.routeName,
@@ -60,20 +62,10 @@ class _ModelListPageState extends State<ModelListPage> {
                   int index,
                 ) {
                   CarModel model = _models[index];
-                  return CupertinoButton(
-                    onPressed: () => _onPress(context, widget.args.type,
+                  return ListItem(
+                    onPress: () => _onPress(context, widget.args.type,
                         model.name, model.id, widget.args.brandId),
-                    child: Container(
-                      width: double.infinity,
-                      height: 40,
-                      color: Colors.white,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                      child: Text(
-                        model.name,
-                        style: TextStyle(color: Colors.blueGrey),
-                      ),
-                    ),
+                    buttonLabel: model.name,
                   );
                 }),
       ),
